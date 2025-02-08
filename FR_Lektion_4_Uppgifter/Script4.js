@@ -46,14 +46,14 @@ function setName() {
         student.name = inputName;
         updateUI();
     } else {
-        alert("Fyll i ett namn!");
+        alert("Fyll i ditt namn!");
     }
 }
 
 // Funktion för att öka åldern (max 100 år)
 function increaseAge() {
     if (student.age < 100) {
-        student.age += 1;
+        student.age += 5;
         updateUI();
     } else {
         alert("Maxålder uppnådd!");
