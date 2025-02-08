@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Uppgift #1 - Lista</title>
+    
+    <!-- Länka CSS här -->
+    <link rel="stylesheet" href="style1.css">
+    
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; margin: 50px; }
+        ul { text-align: left; display: inline-block; }
+        button { margin: 5px; padding: 10px; }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Uppgift 1 - Hantera Lista</h1>
+        
+        <ul id="taskList"></ul>
+
+        <br>
+
+        <input type="text" id="newTask" placeholder="Skriv en ny Uppgift">
+        <button onclick="addTask()">Lägg till</button>
+        <button onclick="clearTasks()">Rensa Lista</button>
+    </div>
+
+    <!-- Länka JavaScript här -->
+    <script src="script1.js"></script> 
+
+</body>
+</html>

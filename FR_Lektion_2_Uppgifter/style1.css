@@ -1,0 +1,92 @@
+/* Centrera allt innehåll */
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    margin: 50px;
+    background-color: #f8f9fa;
+}
+
+/* Centrera innehållet vertikalt och horisontellt */
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Styla listan */
+ul {
+    text-align: left;
+    display: inline-block;
+    padding: 0;
+}
+
+/* Styla listobjekt */
+li {
+    list-style: none;
+    font-size: 18px;
+    margin: 5px 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: white;
+    padding: 6px 10px;
+    border-radius: 8px;
+    width: 250px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Markera en uppgift som klar */
+.completed {
+    text-decoration: line-through;
+    color: gray;
+}
+
+/* Knappar - Grundläggande stil */
+button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    font-size: 14px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: all 0.2s;
+}
+
+/* Hover-effekt för knappar */
+button:hover {
+    background-color: #0056b3;
+    transform: scale(1.05);
+}
+
+/* Stil för ta bort-knappen */
+.delete-btn {
+    background-color: #dc3545;
+    border: none;
+    padding: 5px 8px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 14px;
+    color: white;
+}
+
+/* Hover-effekt för ta bort-knappen */
+.delete-btn:hover {
+    background-color: #a71d2a;
+}
+
+/* Styla inputfältet */
+input {
+    padding: 8px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    outline: none;
+    width: 220px;
+}
+
+/* Anpassa bredden på inputfält och knappar */
+input, button {
+    margin: 5px;
+}

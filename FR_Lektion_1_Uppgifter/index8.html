@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Timeout</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 50px;
+        }
+        #messages {
+            margin-top: 20px;
+            font-size: 18px;
+            font-weight: bold;
+        }
+        .error { color: red; }
+        .success { color: green; }
+        button { margin: 5px; padding: 10px; }
+    </style>
+</head>
+<body>
+
+    <h1>Smart Timeout Demo</h1>
+
+    <label for="delay">Fördröjning (ms):</label>
+    <input type="number" id="delay" value="1000" min="1">
+    
+    <br><br>
+
+    <label for="message">Meddelande:</label>
+    <input type="text" id="message" value="Hej där!">
+    
+    <br><br>
+
+    <label for="repeat">Antal upprepningar:</label>
+    <input type="number" id="repeat" value="3" min="1">
+    
+    <br><br>
+
+    <button onclick="startSmartTimeout()">Starta</button>
+    <button onclick="pauseSmartTimeout()">Pausa</button>
+    <button onclick="resumeSmartTimeout()">Återuppta</button>
+    <button onclick="stopSmartTimeout()">Stoppa</button>
+
+    <div id="messages">Meddelanden kommer att visas här...</div>
+
+    <script src="Script8.js"></script>
+
+</body>
+</html>

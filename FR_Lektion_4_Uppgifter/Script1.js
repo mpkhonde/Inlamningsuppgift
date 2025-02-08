@@ -1,0 +1,1 @@
+document.getElementById("result").textContent = 2 + 2;
