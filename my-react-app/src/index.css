@@ -1,71 +1,169 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
-
-:root {
- 
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
-
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
-}
-
-body {
+/* 🔷 Grundläggande styling för hela sidan */
+body, html {
   margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  height: 100vh;
+  width: 100vw;
   display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
+  align-items: center;
+  justify-content: center;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  color: #fff; 
+
+  /* Mjuk övergång mellan bilder */
+  transition: background-image 1.5s ease-in-out; 
 }
 
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
+/* 🔹 Wrapper för innehåll (centrering och styling) */
+.app-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+
+  /* Perfekt centrering */
+  transform: translate(-50%, -50%); 
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  width: 90%;
+  max-width: 800px;
+  background: rgba(0, 0, 0, 0.7);
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(255, 255, 255, 0.2);
 }
 
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
+/* 🔹 Header */
+header h1 {
+  font-size: 36px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+/* 🔹 Navigation */
+nav {
+  display: flex;
+  gap: 15px;
+  margin: 20px;
+}
+
+nav button {
+  padding: 12px 25px;
+  font-size: 18px;
+  border: none;
+  background-color: #4CAF50;
+  color: white;
   cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+  transition: 0.3s;
+  border-radius: 5px;
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
+nav button:hover {
+  background-color: #45a049;
+}
+
+nav button.active {
+  background-color: #2e7d32;
+  font-weight: bold;
+}
+
+/* 🔹 Huvudinnehåll */
+main {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+  max-width: 600px;
+  text-align: center;
+  margin: 20px 0;
+}
+
+/* 🔹 Styla "Visa Namn"-knappen */
+.name-button {
+  padding: 10px 20px;
+  font-size: 16px;
+  border: none;
+  background-color: #ff9800;
+  color: white;
+  cursor: pointer;
+  transition: 0.3s;
+  border-radius: 5px;
+  margin-top: 10px;
+}
+
+.name-button:hover {
+  background-color: #e68900;
+}
+
+/* 🔹 Styla återställningsknappen */
+.reset-button {
+  padding: 12px 25px;
+  font-size: 18px;
+  border: none;
+  background-color: #008CBA;
+  color: white;
+  cursor: pointer;
+  transition: 0.3s;
+  border-radius: 5px;
+  margin-top: 20px;
+}
+
+.reset-button:hover {
+  background-color: #007bb5;
+}
+
+/* 🔹 Bakgrundscontainer (för mjuka övergångar) */
+.background-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  z-index: -1; 
+}
+
+/* 🔹 Bakgrundsbild med fade */
+.background {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+
+  /* Gör övergången mjuk */
+  transition: opacity 1s ease-in-out; 
+}
+
+/* 🔹 Fade-effekter */
+.fade-in {
+  opacity: 1;
+}
+
+.fade-out {
+  opacity: 0.5;
+}
+
+/* 🔹 Responsiv design för mindre skärmar */
+@media (max-width: 768px) {
+  .app-container {
+      width: 95%;
+      padding: 20px;
   }
-  a:hover {
-    color: #747bff;
+  
+  nav {
+      flex-direction: column;
+      align-items: center;
   }
-  button {
-    background-color: #f9f9f9;
+
+  nav button {
+      width: 100%;
   }
 }
