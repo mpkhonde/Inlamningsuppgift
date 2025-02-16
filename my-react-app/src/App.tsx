@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import NavBar from "./NavBar";
 import "./index.css";
 
-// ✅ Bildsökvägar
+// Bildsökvägar
 const galaxyImages = [
   "/galaxy1.jpg",
   "/galaxy2.jpg",
@@ -22,25 +22,28 @@ const App: React.FC = () => {
   const [page, setPage] = useState<string>(localStorage.getItem("page") || "home");
   const [name, setName] = useState<string>("");
   const [bgIndex, setBgIndex] = useState<number>(0);
-  const [fade, setFade] = useState<boolean>(false); // Ny fade state
+  const [fade, setFade] = useState<boolean>(false); 
 
-  // 🔄 Förladda nästa bild innan byte
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setFade(true);
+  
+      setTimeout(() => {
+        setBgIndex((prevIndex) => (prevIndex + 1) % galaxyImages.length);
+        setFade(false); 
+      }, 1500); 
+  
+    }, 5000); // Byter bild var 5:e sekund
+  
+    return () => clearInterval(interval);
+  }, []);
+  
+  // Förladdning av nästa bild för att undvika blinkningar
   useEffect(() => {
     const preloadImage = new Image();
     preloadImage.src = galaxyImages[(bgIndex + 1) % galaxyImages.length];
-
-    const interval = setInterval(() => {
-      setFade(true); // Starta fade-out
-
-      setTimeout(() => {
-        setBgIndex((prevIndex) => (prevIndex + 1) % galaxyImages.length);
-        setFade(false); // Starta fade-in efter bildbyte
-      }, 2000); // Väntar 1.5s innan bytet sker
-
-    }, 10000); // Byter bild var 5:e sekund
-
-    return () => clearInterval(interval);
   }, [bgIndex]);
+  
 
   // Slumpmässiga namnlista
   const names: string[] = ["Alice", "Bob", "Charlie", "David", "Emma", "Fredrik", "Greta", "Hugo", "Isabella", "Johan", "Moise"];
@@ -53,12 +56,12 @@ const App: React.FC = () => {
 
   return (
     <>
-      {/* 🔹 Bakgrundscontainer (ligger längst bak) */}
+      {/* Bakgrundscontainer (ligger längst bak) */}
       <div className="background-container">
         <div className={`background ${fade ? "fade-out" : "fade-in"}`} style={{ backgroundImage: `url(${galaxyImages[bgIndex]})` }}></div>
       </div>
 
-      {/* 🔹 Huvudlayout */}
+      {/* Huvudlayout */}
       <div className="app-container">
         <header>
           <h1>Välkommen till Min Webbsida</h1>
@@ -79,7 +82,7 @@ const App: React.FC = () => {
             </section>
           )}
 
-          {/* 🔹 Slumpmässigt namn-knapp */}
+          {/* Slumpmässigt namn-knapp */}
           <div className="name-container">
             <button className="name-button" onClick={showRandomName}>
               Visa Namn

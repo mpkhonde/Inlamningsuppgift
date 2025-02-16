@@ -18,20 +18,55 @@ body, html {
   transition: background-image 1.5s ease-in-out; 
 }
 
-/* 🔹 Wrapper för innehåll (centrering och styling) */
+/* Bakgrundscontainer (för mjuka övergångar) */
+.background-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  z-index: -1; 
+}
+
+/* Bakgrundsbild med fade */
+.background {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+
+  /* Gör övergången mjuk */
+  transition: opacity 1.5s ease-in-out; 
+}
+
+/* Fade-effekter */
+.fade-in {
+  opacity: 1;
+}
+.fade-out {
+  opacity: 0.5;
+}
+
+/* Fade-effekt vid bakgrundsbyte */
+body {
+  transition: opacity 1.5s ease-in-out;
+}
+body.fade {
+  opacity: 0;
+}
+
+/* Wrapper för innehåll (centrering och styling) */
 .app-container {
   position: absolute;
   top: 50%;
   left: 50%;
-
-  /* Perfekt centrering */
   transform: translate(-50%, -50%); 
-
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-
   width: 90%;
   max-width: 800px;
   background: rgba(0, 0, 0, 0.7);
@@ -40,14 +75,14 @@ body, html {
   box-shadow: 0 4px 10px rgba(255, 255, 255, 0.2);
 }
 
-/* 🔹 Header */
+/* Header */
 header h1 {
   font-size: 36px;
   margin-bottom: 20px;
   text-align: center;
 }
 
-/* 🔹 Navigation */
+/* Navigation */
 nav {
   display: flex;
   gap: 15px;
@@ -71,10 +106,10 @@ nav button:hover {
 
 nav button.active {
   background-color: #2e7d32;
-  font-weight: bold;
+  box-shadow: 0 0 15px rgba(76, 175, 80, 0.6); 
 }
 
-/* 🔹 Huvudinnehåll */
+/* Huvudinnehåll */
 main {
   background: rgba(255, 255, 255, 0.1);
   padding: 20px;
@@ -85,73 +120,47 @@ main {
   margin: 20px 0;
 }
 
-/* 🔹 Styla "Visa Namn"-knappen */
-.name-button {
-  padding: 10px 20px;
-  font-size: 16px;
+/* Allmän styling för knappar */
+button {
+  padding: 12px 25px;
+  font-size: 18px;
   border: none;
-  background-color: #ff9800;
-  color: white;
   cursor: pointer;
   transition: 0.3s;
   border-radius: 5px;
-  margin-top: 10px;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* "Visa Namn"-knappen */
+.name-button {
+  background-color: #ff9800;
+  color: white;
 }
 
 .name-button:hover {
   background-color: #e68900;
+  transform: scale(1.05); 
 }
 
-/* 🔹 Styla återställningsknappen */
+/* Återställningsknappen */
 .reset-button {
-  padding: 12px 25px;
-  font-size: 18px;
-  border: none;
-  background-color: #008CBA;
+  background-color: #008CBA; 
   color: white;
-  cursor: pointer;
-  transition: 0.3s;
-  border-radius: 5px;
-  margin-top: 20px;
 }
 
 .reset-button:hover {
   background-color: #007bb5;
+  transform: scale(1.05); 
 }
 
-/* 🔹 Bakgrundscontainer (för mjuka övergångar) */
-.background-container {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  overflow: hidden;
-  z-index: -1; 
+/* Lägg till en klickanimation */
+button:active {
+  transform: scale(0.95); 
 }
 
-/* 🔹 Bakgrundsbild med fade */
-.background {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  background-size: cover;
-  background-position: center;
-
-  /* Gör övergången mjuk */
-  transition: opacity 1s ease-in-out; 
-}
-
-/* 🔹 Fade-effekter */
-.fade-in {
-  opacity: 1;
-}
-
-.fade-out {
-  opacity: 0.5;
-}
-
-/* 🔹 Responsiv design för mindre skärmar */
+/* Responsiv design för mindre skärmar */
 @media (max-width: 768px) {
   .app-container {
       width: 95%;
